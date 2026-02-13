@@ -1,3 +1,5 @@
+# pylint: disable=invalid-name
+# Module name required by assignment specification (Req 4).
 """
 Compute total sales from a product catalogue and sales records.
 
@@ -75,29 +77,23 @@ def compute_total_sales(catalogue, sales):
 def format_results(grand_total, sale_totals, elapsed_time):
     """Format the results as a human-readable string."""
     lines = []
-    lines.append("=" * 60)
+    lines.append("=" * 40)
     lines.append("SALES REPORT")
-    lines.append("=" * 60)
+    lines.append("=" * 40)
 
     for sale_id in sorted(sale_totals.keys()):
         sale = sale_totals[sale_id]
-        lines.append(f"\nSALE {sale_id}")
-        lines.append("-" * 40)
+        items_count = len(sale["items"])
+        lines.append(
+            f"  SALE {sale_id:<5} "
+            f"({items_count} items)  "
+            f"${sale['total']:.2f}"
+        )
 
-        for item in sale["items"]:
-            lines.append(
-                f"  {item['product']:<35} "
-                f"x{item['quantity']:<5} "
-                f"@ ${item['unit_price']:<10.2f} "
-                f"= ${item['cost']:.2f}"
-            )
-
-        lines.append(f"  {'Sale Total:':<35} ${sale['total']:.2f}")
-
-    lines.append("\n" + "=" * 60)
-    lines.append(f"GRAND TOTAL: ${grand_total:.2f}")
+    lines.append("=" * 40)
+    lines.append(f"GRAND TOTAL:  ${grand_total:.2f}")
     lines.append(f"Time elapsed: {elapsed_time:.4f} seconds")
-    lines.append("=" * 60)
+    lines.append("=" * 40)
 
     return "\n".join(lines)
 
