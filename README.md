@@ -11,19 +11,20 @@ Repositorio con el programa `computeSales.py` desarrollado en Python que calcula
 A01173717_A5.2/
 ├── computeSales.py
 ├── A5.2 Archivos de Apoyo/
-│   ├── Results.txt               (resultados esperados)
+│   ├── Results.txt
 │   ├── TC1/
 │   │   ├── TC1.ProductList.json  (catálogo de 50 productos)
-│   │   └── TC1.Sales.json        (ventas del caso 1)
+│   │   ├── TC1.Sales.json        (ventas del caso 1)
+│   │   └── evidencias/TC1.png
 │   ├── TC2/
-│   │   └── TC2.Sales.json        (ventas del caso 2)
+│   │   ├── TC2.Sales.json        (ventas del caso 2)
+│   │   └── evidencias/TC2.png
 │   └── TC3/
-│       └── TC3.Sales.json        (ventas del caso 3)
-├── evidence/
-│   ├── TC1_output.txt
-│   ├── TC2_output.txt
-│   ├── TC3_output.txt
-│   └── flake8_output.txt
+│       ├── TC3.Sales.json        (ventas del caso 3)
+│       └── evidencias/TC3.png
+├── evidencias/
+│   ├── flake8.png
+│   └── pylint.png
 └── README.md
 ```
 
@@ -74,28 +75,9 @@ Se ejecutaron **3 casos de prueba** con los archivos proporcionados. Los tres ut
 
 Todas las ventas tienen productos existentes en el catálogo y cantidades positivas.
 
-```
-$ python3 computeSales.py TC1.ProductList.json TC1.Sales.json
-========================================
-SALES REPORT
-========================================
-  SALE 1     (3 items)  $83.39
-  SALE 2     (2 items)  $67.57
-  SALE 3     (3 items)  $144.74
-  SALE 4     (3 items)  $87.23
-  SALE 5     (3 items)  $94.33
-  SALE 6     (8 items)  $239.04
-  SALE 7     (5 items)  $182.11
-  SALE 8     (7 items)  $407.30
-  SALE 9     (6 items)  $851.43
-  SALE 10    (6 items)  $324.72
-========================================
-GRAND TOTAL:  $2481.86
-Time elapsed: 0.0003 seconds
-========================================
-```
-
 **Resultado esperado: $2481.86** | **Resultado obtenido: $2481.86**
+
+![Evidencia TC1 - Ejecución del caso de prueba 1](A5.2%20Archivos%20de%20Apoyo/TC1/evidencias/TC1.png)
 
 ### TC2 - Cantidades negativas (devoluciones)
 
@@ -103,45 +85,17 @@ Incluye registros con cantidades negativas que representan devoluciones:
 - `Fresh blueberries`: Quantity -35
 - `Green smoothie`: Quantity -123
 
-```
-$ python3 computeSales.py TC1.ProductList.json TC2.Sales.json
-========================================
-SALES REPORT
-========================================
-  SALE 1     (3 items)  $4969.25
-  SALE 2     (2 items)  $6352.61
-  ...
-  SALE 10    (6 items)  $91420.61
-========================================
-GRAND TOTAL:  $166568.23
-Time elapsed: 0.0004 seconds
-========================================
-```
-
 **Resultado esperado: $166568.23** | **Resultado obtenido: $166568.23**
+
+![Evidencia TC2 - Ejecución del caso de prueba 2](A5.2%20Archivos%20de%20Apoyo/TC2/evidencias/TC2.png)
 
 ### TC3 - Productos no encontrados + cantidades negativas
 
 Incluye productos que no existen en el catálogo (`Elotes`, `Frijoles`) y cantidades negativas. El programa reporta los errores y continúa la ejecución.
 
-```
-$ python3 computeSales.py TC1.ProductList.json TC3.Sales.json
-  Error: Product 'Elotes' is not in the catalogue. Skipping.
-  Error: Product 'Frijoles' is not in the catalogue. Skipping.
-========================================
-SALES REPORT
-========================================
-  SALE 1     (3 items)  $4969.25
-  SALE 2     (2 items)  $6352.61
-  ...
-  SALE 10    (6 items)  $92155.96
-========================================
-GRAND TOTAL:  $165235.37
-Time elapsed: 0.0003 seconds
-========================================
-```
-
 **Resultado esperado: $165235.37** | **Resultado obtenido: $165235.37**
+
+![Evidencia TC3 - Ejecución del caso de prueba 3 con manejo de errores](A5.2%20Archivos%20de%20Apoyo/TC3/evidencias/TC3.png)
 
 ### Resumen de resultados
 
@@ -159,21 +113,13 @@ Time elapsed: 0.0003 seconds
 
 Se ejecutó flake8 sobre el programa y no se encontraron errores:
 
-```
-$ flake8 computeSales.py
-(No errors found)
-```
+![Evidencia flake8 - Cero errores encontrados](evidencias/flake8.png)
 
 ### Análisis con pylint
 
-Se ejecutó pylint sobre el programa y se obtuvo la calificación máxima:
+Se ejecutó pylint sobre el programa y se obtuvo la calificación máxima de **10.00/10**:
 
-```
-$ pylint computeSales.py
-
---------------------------------------------------------------------
-Your code has been rated at 10.00/10
-```
+![Evidencia pylint - Calificación 10.00/10](evidencias/pylint.png)
 
 ### Resumen de análisis estático
 
