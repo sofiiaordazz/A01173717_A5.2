@@ -1,7 +1,7 @@
-# Actividad 5.2 - Ejercicio de Programaci\u00f3n 2 y An\u00e1lisis Est\u00e1tico
-# Sof\u00eda Ordaz L\u00f3pez - A01173717
+# Actividad 5.2 - Ejercicio de Programación 2 y Análisis Estático
+# Sofía Ordaz López - A01173717
 
-Repositorio con el programa `computeSales.py` desarrollado en Python que calcula el costo total de ventas a partir de un cat\u00e1logo de productos y registros de ventas en formato JSON. El programa sigue el est\u00e1ndar de codificaci\u00f3n **PEP-8** y fue validado con **flake8** (cero errores) y **pylint** obteniendo una calificaci\u00f3n de **10.00/10**.
+Repositorio con el programa `computeSales.py` desarrollado en Python que calcula el costo total de ventas a partir de un catálogo de productos y registros de ventas en formato JSON. El programa sigue el estándar de codificación **PEP-8** y fue validado con **flake8** (cero errores) y **pylint** obteniendo una calificación de **10.00/10**.
 
 ---
 
@@ -9,70 +9,70 @@ Repositorio con el programa `computeSales.py` desarrollado en Python que calcula
 
 ```
 A01173717_A5.2/
-\u251c\u2500\u2500 computeSales.py
-\u251c\u2500\u2500 A5.2 Archivos de Apoyo/
-\u2502   \u251c\u2500\u2500 Results.txt               (resultados esperados)
-\u2502   \u251c\u2500\u2500 TC1/
-\u2502   \u2502   \u251c\u2500\u2500 TC1.ProductList.json  (cat\u00e1logo de 50 productos)
-\u2502   \u2502   \u2514\u2500\u2500 TC1.Sales.json        (ventas del caso 1)
-\u2502   \u251c\u2500\u2500 TC2/
-\u2502   \u2502   \u2514\u2500\u2500 TC2.Sales.json        (ventas del caso 2)
-\u2502   \u2514\u2500\u2500 TC3/
-\u2502       \u2514\u2500\u2500 TC3.Sales.json        (ventas del caso 3)
-\u251c\u2500\u2500 evidence/
-\u2502   \u251c\u2500\u2500 TC1_output.txt
-\u2502   \u251c\u2500\u2500 TC2_output.txt
-\u2502   \u251c\u2500\u2500 TC3_output.txt
-\u2502   \u2514\u2500\u2500 flake8_output.txt
-\u2514\u2500\u2500 README.md
+├── computeSales.py
+├── A5.2 Archivos de Apoyo/
+│   ├── Results.txt               (resultados esperados)
+│   ├── TC1/
+│   │   ├── TC1.ProductList.json  (catálogo de 50 productos)
+│   │   └── TC1.Sales.json        (ventas del caso 1)
+│   ├── TC2/
+│   │   └── TC2.Sales.json        (ventas del caso 2)
+│   └── TC3/
+│       └── TC3.Sales.json        (ventas del caso 3)
+├── evidence/
+│   ├── TC1_output.txt
+│   ├── TC2_output.txt
+│   ├── TC3_output.txt
+│   └── flake8_output.txt
+└── README.md
 ```
 
 ---
 
-## Ejecuci\u00f3n
+## Ejecución
 
-El programa se ejecuta desde la l\u00ednea de comandos recibiendo dos archivos JSON como argumentos:
+El programa se ejecuta desde la línea de comandos recibiendo dos archivos JSON como argumentos:
 
 ```bash
 python computeSales.py priceCatalogue.json salesRecord.json
 ```
 
-Los resultados se imprimen en consola y se guardan autom\u00e1ticamente en un archivo `SalesResults.txt`.
+Los resultados se imprimen en consola y se guardan automáticamente en un archivo `SalesResults.txt`.
 
 ---
 
-## Descripci\u00f3n del programa - Compute Sales (`computeSales.py`)
+## Descripción del programa - Compute Sales (`computeSales.py`)
 
 ### Funcionalidad
 
-El programa lee un cat\u00e1logo de productos con precios y un registro de ventas, calcula el costo total de todas las ventas y genera un reporte.
+El programa lee un catálogo de productos con precios y un registro de ventas, calcula el costo total de todas las ventas y genera un reporte.
 
 | Funcionalidad | Detalle |
 |---|---|
-| **Lectura de datos** | Carga dos archivos JSON (cat\u00e1logo y ventas) |
-| **C\u00e1lculo de costos** | Para cada venta: precio del producto \u00d7 cantidad |
-| **Manejo de errores** | Productos no encontrados en el cat\u00e1logo se reportan en consola y se omiten |
+| **Lectura de datos** | Carga dos archivos JSON (catálogo y ventas) |
+| **Cálculo de costos** | Para cada venta: precio del producto x cantidad |
+| **Manejo de errores** | Productos no encontrados en el catálogo se reportan en consola y se omiten |
 | **Reporte** | Muestra total por venta y gran total en pantalla y en archivo |
-| **Tiempo de ejecuci\u00f3n** | Se incluye al final del reporte |
+| **Tiempo de ejecución** | Se incluye al final del reporte |
 
-### Manejo de datos inv\u00e1lidos
+### Manejo de datos inválidos
 
-El programa maneja los siguientes casos de datos inv\u00e1lidos sin detenerse:
+El programa maneja los siguientes casos de datos inválidos sin detenerse:
 
-- **Producto no encontrado en el cat\u00e1logo**: Se muestra un error en consola y se omite del c\u00e1lculo.
-- **Cantidad no num\u00e9rica**: Se muestra un error en consola y se omite del c\u00e1lculo.
+- **Producto no encontrado en el catálogo**: Se muestra un error en consola y se omite del cálculo.
+- **Cantidad no numérica**: Se muestra un error en consola y se omite del cálculo.
 - **Cantidades negativas**: Se procesan como devoluciones (restan del total).
-- **Archivos inv\u00e1lidos o no encontrados**: Se muestra un error y el programa termina con c\u00f3digo de salida 1.
+- **Archivos inválidos o no encontrados**: Se muestra un error y el programa termina con código de salida 1.
 
 ---
 
 ## Casos de prueba ejecutados
 
-Se ejecutaron **3 casos de prueba** con los archivos proporcionados. Los tres utilizan el mismo cat\u00e1logo de productos (`TC1.ProductList.json`).
+Se ejecutaron **3 casos de prueba** con los archivos proporcionados. Los tres utilizan el mismo catálogo de productos (`TC1.ProductList.json`).
 
-### TC1 - Caso base (datos v\u00e1lidos)
+### TC1 - Caso base (datos válidos)
 
-Todas las ventas tienen productos existentes en el cat\u00e1logo y cantidades positivas.
+Todas las ventas tienen productos existentes en el catálogo y cantidades positivas.
 
 ```
 $ python3 computeSales.py TC1.ProductList.json TC1.Sales.json
@@ -122,7 +122,7 @@ Time elapsed: 0.0004 seconds
 
 ### TC3 - Productos no encontrados + cantidades negativas
 
-Incluye productos que no existen en el cat\u00e1logo (`Elotes`, `Frijoles`) y cantidades negativas. El programa reporta los errores y contin\u00faa la ejecuci\u00f3n.
+Incluye productos que no existen en el catálogo (`Elotes`, `Frijoles`) y cantidades negativas. El programa reporta los errores y continúa la ejecución.
 
 ```
 $ python3 computeSales.py TC1.ProductList.json TC3.Sales.json
@@ -153,20 +153,20 @@ Time elapsed: 0.0003 seconds
 
 ---
 
-## Cumplimiento del est\u00e1ndar PEP-8
+## Cumplimiento del estándar PEP-8
 
-### An\u00e1lisis con flake8
+### Análisis con flake8
 
-Se ejecut\u00f3 flake8 sobre el programa y no se encontraron errores:
+Se ejecutó flake8 sobre el programa y no se encontraron errores:
 
 ```
 $ flake8 computeSales.py
 (No errors found)
 ```
 
-### An\u00e1lisis con pylint
+### Análisis con pylint
 
-Se ejecut\u00f3 pylint sobre el programa y se obtuvo la calificaci\u00f3n m\u00e1xima:
+Se ejecutó pylint sobre el programa y se obtuvo la calificación máxima:
 
 ```
 $ pylint computeSales.py
@@ -175,11 +175,11 @@ $ pylint computeSales.py
 Your code has been rated at 10.00/10
 ```
 
-### Resumen de an\u00e1lisis est\u00e1tico
+### Resumen de análisis estático
 
 | Herramienta | Resultado |
 |---|---|
 | **flake8** | 0 errores |
 | **pylint** | 10.00/10 |
 
-Esto garantiza que el c\u00f3digo cumple con las convenciones de estilo de Python definidas en PEP-8, incluyendo: nombres de variables y funciones en `snake_case`, docstrings descriptivos, manejo adecuado de imports, longitud de l\u00ednea controlada y estructura limpia del c\u00f3digo.
+Esto garantiza que el código cumple con las convenciones de estilo de Python definidas en PEP-8, incluyendo: nombres de variables y funciones en `snake_case`, docstrings descriptivos, manejo adecuado de imports, longitud de línea controlada y estructura limpia del código.
